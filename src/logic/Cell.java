@@ -1,5 +1,10 @@
 package logic;
 
+//-1 - пустая ячейка
+// 0 - размещен корабль
+// 1 - был выстрел по пустой ячейке
+// 2 - был выстрел по кораблю
+
 public class Cell {
     private int x, y;
     private int state;
@@ -8,6 +13,17 @@ public class Cell {
         x = _x;
         y = _y;
         state = _state;
+    }
+
+    public boolean fire() {
+        if (state == -1) {
+            state = 1;
+        } else if (state == 0) {
+            state = 2;
+        } else {
+            return false;
+        }
+        return true;
     }
 
     public int getState() {
