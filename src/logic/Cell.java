@@ -18,7 +18,7 @@ public class Cell {
         state = 0;
     }
 
-    public  void setFired() {
+    public void setFired() {
         state = 2;
     }
 
