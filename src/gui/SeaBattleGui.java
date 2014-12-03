@@ -23,9 +23,9 @@ public class SeaBattleGui extends JFrame {
         compField.setBounds(480, 10, 450, 450);
 
         JLabel userLabel = new JLabel("Компьютер сделал ход:");
-        userLabel.setBounds(140, 480, 180, 20);
+        userLabel.setBounds(140, 470, 180, 20);
         JLabel compLabel = new JLabel("Игрок сделал ход:");
-        compLabel.setBounds(630, 480, 150, 20);
+        compLabel.setBounds(630, 470, 150, 20);
 
         JPanel background = new JPanel();
         background.setLayout(null);
@@ -46,7 +46,9 @@ public class SeaBattleGui extends JFrame {
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDebug = new JMenu("Отладка");
-        JMenuItem menuItemDebugShow = new JMenuItem("Показать скрытое)");
+        JMenu menuMenu = new JMenu("Меню");
+        JMenuItem menuItemDebugShow = new JMenuItem("Показать/скрыть корабли");
+        JMenuItem menuItemMenuRestart = new JMenuItem("Начать заново");
         menuItemDebugShow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -56,7 +58,9 @@ public class SeaBattleGui extends JFrame {
         });
 
         menuDebug.add(menuItemDebugShow);
+        menuMenu.add(menuItemMenuRestart);
 
+        menuBar.add(menuMenu);
         menuBar.add(menuDebug);
 
         setJMenuBar(menuBar);

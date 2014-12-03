@@ -12,7 +12,7 @@ public class FieldGui extends JPanel {
     private Field field;
     private boolean enemyFlag;
     private FieldCellGui[][] cellsGui;
-    private String[] letters = {"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "К"};
+    private String[] letters = {"", "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "К"};
 
     public FieldGui(Field _field, boolean _enemyFlag) {
         field = _field;
@@ -62,14 +62,19 @@ public class FieldGui extends JPanel {
 
     private void initField() {
         addLeters();
+
         for (int x = 0; x < Field.ROW_COUNT; x++) {
-            for (int y = 0; y < Field.COL_COUNT; y++) {
-                FieldCellGui temp = new FieldCellGui(field.getCells()[x][y]);
-                cellsGui[x][y] = temp;
-                temp.setBorder(BorderFactory.createLineBorder(Color.gray));
-                int state = temp.getCell().getState();
-                temp.reDraw();
-                add(temp);
+            for (int y = -1; y < Field.COL_COUNT; y++) {
+                if ((y==-1)) {
+                    add(labelNumber(x + 1));
+                } else {
+                    FieldCellGui temp = new FieldCellGui(field.getCells()[x][y]);
+                    cellsGui[x][y] = temp;
+                    temp.setBorder(BorderFactory.createLineBorder(Color.gray));
+                    int state = temp.getCell().getState();
+                    temp.reDraw();
+                    add(temp);
+                }
             }
         }
     }
