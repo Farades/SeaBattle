@@ -32,6 +32,10 @@ public class FieldGui extends JPanel {
         return enemyFlag;
     }
 
+    public void setField(Field _field) {
+        field = _field;
+    }
+
     public void invertEnemyFlag() {
         enemyFlag = !enemyFlag;
     }

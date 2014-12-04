@@ -8,17 +8,14 @@ import gui.SeaBattleGui;
 // 2 - был выстрел по кораблю
 
 public class SeaBattle {
-    private Field userField;
-    private Field compField;
+
     private SeaBattleGui gui;
 
     public SeaBattle() {
-        userField = new Field();
-        compField = new Field();
-        gui = new SeaBattleGui(userField, compField);
+
     }
 
     public void start() {
-
+        gui = new SeaBattleGui();
     }
 }
